@@ -13,6 +13,7 @@ body{
   line-height:1.6;
 }
 
+/* NAVBAR */
 .navbar{
   display:flex;
   justify-content:space-between;
@@ -26,9 +27,11 @@ body{
   backdrop-filter: blur(10px);
   z-index:1000;
 }
+
 .nav-links a.active{
   color:#00d4ff;
 }
+
 .navbar.scrolled{
   background:rgba(11,16,32,0.92);
   border-bottom:1px solid rgba(255,255,255,0.08);
@@ -80,7 +83,7 @@ body{
 .hero-content{
   width:100%;
   text-align:center;
-  padding:80px 10% 40px;
+  padding:140px 10% 40px; /* increased top padding due to fixed navbar */
   margin:auto;
 }
 
@@ -99,6 +102,13 @@ body{
   margin-top:10px;
   font-size:20px;
   opacity:0.9;
+  min-height:1.4em;
+}
+
+#typing{
+  display:inline-block;
+  min-width:18ch;
+  text-align:left;
 }
 
 .hero-actions{
@@ -119,21 +129,34 @@ body{
   transition:0.3s;
   display:inline-block;
 }
+
 .btn:hover{
   transform:translateY(-2px);
   opacity:0.95;
+  box-shadow: 0 10px 30px rgba(36, 7, 226, 0.25);
 }
 
+/* (Optional class if you want outlined button later) */
 .btn-outline{
   background:#121830;
   border:1px solid #7c5cff;
   color:white;
 }
-/* SECTIONS */
+
+/* SECTIONS + SCROLL ANIMATION */
 .section{
   padding:80px 10%;
   max-width:1100px;
   margin:auto;
+
+  opacity:0;
+  transform:translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .section h2{
@@ -161,12 +184,12 @@ body{
   border:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
+
 .mini-card:hover{
   transform:translateY(-4px);
   border-color:rgba(124,92,255,0.7);
   background:rgba(124,92,255,0.12);
 }
-
 
 /* SKILLS */
 .skills-grid{
@@ -181,6 +204,36 @@ body{
   border-radius:999px;
   border:1px solid rgba(255,255,255,0.12);
   background:rgba(255,255,255,0.05);
+}
+
+/* Learning skill hover */
+.pill.learning{
+  position:relative;
+  cursor:pointer;
+  overflow:visible;
+}
+
+.learning-hover{
+  position:absolute;
+  left:50%;
+  top:110%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+
+  background:#121830;
+  border:1px solid rgba(255,255,255,0.15);
+  padding:6px 12px;
+  border-radius:999px;
+
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s ease;
+}
+
+.pill.learning:hover .learning-hover{
+  top:125%;
+  opacity:1;
 }
 
 /* PROJECTS */
@@ -198,12 +251,19 @@ body{
   border:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
+
 .project-card:hover{
   transform:translateY(-4px);
   border-color:rgba(0,212,255,0.6);
   background:rgba(0,212,255,0.10);
 }
 
+/* CONTACT */
+.contact{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
 .contact-box{
   background:rgba(255,255,255,0.05);
@@ -233,12 +293,6 @@ body{
 .contact-box a:hover{
   text-decoration:underline;
 }
-.contact{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
 
 /* FOOTER */
 footer{
@@ -246,17 +300,6 @@ footer{
   padding:22px;
   opacity:0.85;
   border-top:1px solid rgba(255,255,255,0.08);
-}
-
-/* SCROLL ANIMATION */
-.section{
-  opacity:0;
-  transform:translateY(30px);
-  transition: all 0.8s ease;
-}
-.section.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 /* RESPONSIVE NAV */
@@ -279,6 +322,7 @@ footer{
 
   .hero-content h1{ font-size:40px; }
 }
+
 /* Hire Me Popup */
 .hire-popup{
   position:fixed;
@@ -287,7 +331,7 @@ footer{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:999;
+  z-index:2000; /* must be higher than navbar */
   padding:20px;
 }
 
@@ -347,47 +391,17 @@ footer{
   cursor:pointer;
   opacity:0.9;
 }
+
 .hire-close:hover{ opacity:1; }
-/* Learning skill hover */
-.pill.learning{
-  position:relative;
-  cursor:pointer;
-  overflow:visible;
-}
 
-.learning-hover{
-  position:absolute;
-  left:50%;
-  top:110%;
-  transform:translateX(-50%);
-  white-space:nowrap;
-
-  background:#121830;
-  border:1px solid rgba(255,255,255,0.15);
-  padding:6px 12px;
-  border-radius:999px;
-
-  font-size:14px;
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s ease;
-}
-
-.pill.learning:hover .learning-hover{
-  top:125%;
-  opacity:1;
-}
-.btn:hover{
-  transform:translateY(-2px);
-  opacity:0.95;
-  box-shadow: 0 10px 30px rgba(36, 7, 226, 0.25);
-}
-
+/* Focus outline */
 a:focus-visible, button:focus-visible{
   outline:2px solid rgba(0,212,255,0.7);
   outline-offset:3px;
   border-radius:12px;
 }
+
+/* Glow */
 .glow{
   position:fixed;
   width:260px;
@@ -399,16 +413,3 @@ a:focus-visible, button:focus-visible{
   z-index:0;
   filter: blur(4px);
 }
-.subtitle{
-  min-height:1.4em;
-}
-
-#typing{
-  display:inline-block;
-  min-width:18ch; 
-  text-align:left;
-}
-
-
-
-
