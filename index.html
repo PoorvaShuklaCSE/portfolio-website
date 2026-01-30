@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio website of Poorva Shukla, Full Stack Developer.">
+<meta name="keywords" content="Portfolio, Web Developer, UI Designer, HTML, CSS, JavaScript">
+<meta name="author" content="Poorva Shukla">
+
+  <title>Poorva Shukla | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <nav class="navbar">
+    <a class="logo" href="#">PS<span>.</span></a>
+
+    <button class="menu-btn" aria-label="Open Menu">☰</button>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <p class="tag">👋 Hello, I am</p>
+    <h1>Poorva Shukla</h1>
+    <p class="subtitle"><span id="typing"></span></p>
+
+    <div class="hero-actions">
+      <button class="btn" id="hireBtn" type="button">Hire Me</button>
+
+      <a href="#projects" class="btn ">View Work</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p class="lead">
+      I’m a passionate web developer who loves creating clean, responsive and user-friendly websites.
+      I focus on good design, smooth interactions and simple, effective code.
+    </p>
+
+    <div class="about-cards">
+      <div class="mini-card">
+        <h3>Design</h3>
+        <p>Modern UI layouts with a focus on readability and aesthetics.</p>
+      </div>
+      <div class="mini-card">
+        <h3>Development</h3>
+        <p>Fast, responsive and structured web pages using HTML/CSS/JS.</p>
+      </div>
+      <div class="mini-card">
+        <h3>Learning</h3>
+        <p>Always improving skills and building better projects each.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+
+    <div class="skills-grid">
+      <div class="pill">HTML</div>
+      <div class="pill">CSS</div>
+      <div class="pill">JavaScript</div>
+      <div class="pill">Responsive Design</div>
+      <div class="pill">UI Design</div>
+      <div class="pill">Git (Basic)</div>
+  
+    <div class="pill learning">
+  Currently learning backend languages
+  <span class="learning-hover">
+    ~Python  ~C Language
+  </span>
+</div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>Single-page responsive portfolio with animations and clean UI.</p>
+    
+      </article>
+
+      <article class="project-card">
+        <h3>Landing Page</h3>
+        <p>Modern product landing page using HTML, CSS and layout techniques.</p>
+        
+      </article>
+      <article class="project-card">
+        <h3>To-Do App</h3>
+        <p>Simple task manager with add/delete interactions using JavaScript.</p>
+        
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+
+    <div class="contact-box">
+  <p>
+    <strong>Email:</strong>
+    <a href="mailto:Poorva.shukla.in@gmail.com">
+      Poorva.shukla.in@gmail.com
+    </a>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <a href="tel:+919876543210">+91 98765 43210</a>
+  </p>
+
+  <p>
+    <strong>LinkedIn:</strong>
+    <a href="https://linkedin.com/in/shukla-poorva" target="_blank" rel="noreferrer">linkedin.com/in/shukla-poorva</a>
+  </p>
+
+  <p>
+    <strong>Instagram:</strong>
+    <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer">@yourusername</a>
+  </p>
+</div>
+
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Poorva Shukla. All Rights Reserved.</p>
+</footer>
+<!-- Hire Me Popup -->
+<div class="hire-popup" id="hirePopup" aria-hidden="true">
+  <div class="hire-popup-card" role="dialog" aria-modal="true" aria-labelledby="hireTitle">
+    <button class="hire-close" id="hireClose" aria-label="Close">✕</button>
+
+    <h3 id="hireTitle">Thanks for considering me for your work 🙌</h3>
+    <p>I’d love to connect with you.</p>
+
+    <a class="hire-link" href="https://linkedin.com/in/shukla-poorva" target="_blank" rel="noreferrer">
+      Visit my LinkedIn →
+    </a>
+  </div>
+</div>
+<div class="glow" id="glow"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
